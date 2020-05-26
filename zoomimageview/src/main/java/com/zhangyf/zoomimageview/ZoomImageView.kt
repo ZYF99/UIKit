@@ -209,7 +209,8 @@ class ZoomImageView : AppCompatImageView, OnGlobalLayoutListener {
 		if (
 			(event.pointerCount < 2
 					&& event.action == MotionEvent.ACTION_MOVE
-					&& scale - mScale > 0.2) || event.action == MotionEvent.ACTION_CANCEL
+					&& scale - mScale > 0.2)
+			|| event.action == MotionEvent.ACTION_CANCEL
 		) {
 			if (isDrag) { //是拖动状态
 				//放大图片后的移动事件
@@ -227,44 +228,44 @@ class ZoomImageView : AppCompatImageView, OnGlobalLayoutListener {
 		return scaleGestureDetector?.onTouchEvent(event) ?: false
 	}
 
-	override fun onGlobalLayout() {
-		//mScale = scale
-		if (drawable != null) {
-			if (isFirstLoad) {
-				isFirstLoad = false
-				//获取控件的宽度和高度
-				val width = width
-				val height = height
-				//获取到ImageView对应图片的宽度和高度
-				val drawable = drawable ?: return
-				// 图片固有宽度
-				val imgWidth = drawable.intrinsicWidth
-				// 图片固有高度
-				val imgHeight = drawable.intrinsicHeight
-				//接下来对图片做初始的缩放处理，保证图片能看全
-				mScale = if (imgWidth >= width && imgHeight >= height) { // 图片宽度和高度都大于控件(缩小)
-					(width * 1.0f / imgWidth).coerceAtMost(height * 1.0f / imgHeight)
-				} else if (imgWidth > width && imgHeight < height) { // 图片宽度大于控件,高度小于控件(缩小)
-					width * 1.0f / imgWidth
-				} else if (imgWidth < width && imgHeight > height) { // 图片宽度小于控件,高度大于控件(缩小)
-					height * 1.0f / imgHeight
-				} else { // 图片宽度小于控件,高度小于控件(放大)
-					(width * 1.0f / imgWidth).coerceAtMost(height * 1.0f / imgHeight)
-				}
-				// 将图片移动到手机屏幕的中间位置
-				val distanceX = width / 2 - imgWidth / 2.toFloat()
-				val distanceY = height / 2 - imgHeight / 2.toFloat()
-				mMatrix?.postTranslate(distanceX, distanceY)
-				mMatrix?.setScale(
-					mScale,
-					mScale,
-					width / 2.toFloat(),
-					height / 2.toFloat()
-				)
-				imageMatrix = mMatrix
-			}
-		}
-	}
+/*    override fun onGlobalLayout() {
+        //mScale = scale
+*//*        if (drawable != null) {
+            if (isFirstLoad) {
+                isFirstLoad = false
+                //获取控件的宽度和高度
+                val width = width
+                val height = height
+                //获取到ImageView对应图片的宽度和高度
+                val drawable = drawable ?: return
+                // 图片固有宽度
+                val imgWidth = drawable.intrinsicWidth
+                // 图片固有高度
+                val imgHeight = drawable.intrinsicHeight
+                //接下来对图片做初始的缩放处理，保证图片能看全
+                mScale = if (imgWidth >= width && imgHeight >= height) { // 图片宽度和高度都大于控件(缩小)
+                    (width * 1.0f / imgWidth).coerceAtMost(height * 1.0f / imgHeight)
+                } else if (imgWidth > width && imgHeight < height) { // 图片宽度大于控件,高度小于控件(缩小)
+                    width * 1.0f / imgWidth
+                } else if (imgWidth < width && imgHeight > height) { // 图片宽度小于控件,高度大于控件(缩小)
+                    height * 1.0f / imgHeight
+                } else { // 图片宽度小于控件,高度小于控件(放大)
+                    (width * 1.0f / imgWidth).coerceAtMost(height * 1.0f / imgHeight)
+                }
+                // 将图片移动到手机屏幕的中间位置
+                val distanceX = width / 2 - imgWidth / 2.toFloat()
+                val distanceY = height / 2 - imgHeight / 2.toFloat()
+                mMatrix?.postTranslate(distanceX, distanceY)
+                mMatrix?.setScale(
+                    mScale,
+                    mScale,
+                    width / 2.toFloat(),
+                    height / 2.toFloat()
+                )
+                imageMatrix = mMatrix
+            }
+        }*//*
+    }*/
 
 	/**
 	 * 获得图片放大缩小以后的宽和高
@@ -326,6 +327,10 @@ class ZoomImageView : AppCompatImageView, OnGlobalLayoutListener {
 
 		//最大缩放倍数
 		private const val MAX_SCALE = 20
+	}
+
+	override fun onGlobalLayout() {
+
 	}
 
 }
