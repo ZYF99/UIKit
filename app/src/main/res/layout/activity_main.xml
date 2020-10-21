@@ -43,6 +43,7 @@
         android:padding="8dp"
         app:center_radius="32dp"
         app:corner_radius="12dp"
+        app:shadow_length="4dp"
         app:elevation="5dp"
         app:itemBackground="@null"
         app:itemIconTint="#000000"
@@ -52,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/navigation"
-        app:shadow_length="4dp"
+
         tools:targetApi="lollipop" />
 
 
