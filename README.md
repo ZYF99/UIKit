@@ -9,11 +9,17 @@
 - 点击事件
 - 与父控件的滑动冲突解决
 
+### 说明
+- [简书](https://www.jianshu.com/p/328e0dcf4f39)
+
 ## 中间凹陷的BottomNavigationView（GapBottomNavigationView）
 
 - 可自定中间拐角平滑度
 - 手动添加中间按钮 设置anchor后自动计算凹陷值
 - 支持更改阴影深度
+
+### 说明
+- [简书](https://www.jianshu.com/p/8cd6add34f19)
 
 Step 1. Add the JitPack repository to your build file
 
@@ -32,6 +38,8 @@ Step 2. Add the dependency
 	        implementation 'com.github.ZYF99:UIKit:1.4'
 	}
 	
+## 个人博客
+[ZIKI(安卓学弟)](https://zyf99.github.io/Blog/)
 	
 ## License
 
