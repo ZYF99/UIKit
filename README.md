@@ -19,8 +19,6 @@ allprojects {
 
 - [简书](https://www.jianshu.com/p/328e0dcf4f39)
 
-![1589948455277.gif](https://upload-images.jianshu.io/upload_images/17794320-83cc34ab96b2c7de.gif?imageMogr2/auto-orient/strip)
-
 - 手势放大缩小
 - 双击放大缩小
 - 放大后手势移动
