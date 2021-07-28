@@ -11,7 +11,7 @@ allprojects {
 	}
 
 	dependencies {
-	        implementation 'com.github.ZYF99:UIKit:1.1'
+	        implementation 'com.github.ZYF99:UIKit:1.4'
 	}
 ```
 
